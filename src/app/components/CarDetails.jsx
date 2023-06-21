@@ -3,10 +3,12 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
-import { generateCarImageUrl } from "@/utils";
+import { getCarImgUrl } from "@/utils/utils";
 
 
-const CarDetails = ({ isOpen, closeModal, car }) => (
+const CarDetails = ({ isOpen, closeModal, car }) =>{ 
+
+  return (
   <>
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -50,18 +52,18 @@ const CarDetails = ({ isOpen, closeModal, car }) => (
 
                 <div className='flex-1 flex flex-col gap-3'>
                   <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
-                    <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' />
+                    <Image src={getCarImgUrl(car)} alt='car model' fill priority className='object-contain' />
                   </div>
 
                   <div className='flex gap-3'>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                      <Image src={generateCarImageUrl(car, "29")} alt='car model' fill priority className='object-contain' />
+                      <Image src={getCarImgUrl(car, "29")} alt='car model' fill priority className='object-contain' />
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                      <Image src={generateCarImageUrl(car, "33")} alt='car model' fill priority className='object-contain' />
+                      <Image src={getCarImgUrl(car, "33")} alt='car model' fill priority className='object-contain' />
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                      <Image  src={generateCarImageUrl(car, "13")} alt='car model' fill priority className='object-contain' />
+                      <Image  src={getCarImgUrl(car, "13")} alt='car model' fill priority className='object-contain' />
                     </div>
                   </div>
                 </div>
@@ -91,6 +93,8 @@ const CarDetails = ({ isOpen, closeModal, car }) => (
       </Dialog>
     </Transition>
   </>
-);
+)
+
+}
 
 export default CarDetails;
